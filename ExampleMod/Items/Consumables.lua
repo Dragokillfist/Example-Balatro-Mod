@@ -1,0 +1,1 @@
+-- this is an Example file of how to make a tarot, spectal, planet and your own custom consumables for balatro
