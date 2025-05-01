@@ -1,5 +1,11 @@
 -- this file is an example of what is generally in a mian lua file 
 
+ExampleMod = SMODS.current_mod
+ExampleMod_config = ExampleMod.config -- this is the config file that is used to store the mods settings, and it is used to make sure that the mod is loaded correctly
+ExampleMod.enabled = copy_table(ExampleMod_config) -- this is the current state of the mods settings, and it is used to make sure that the mod is loaded correctly
+
+-- the three things above are required to make your mods config actually work
+
 -- When making a Sprite For balatro you need to have a 1x and a 2x file, because the sprite in the collection and the sprite of the joker you have mid run are diffrent resolutions/sizes
 SMODS.Atlas({
     object_type = "Atlas",
@@ -14,3 +20,4 @@ SMODS.Atlas({
 assert(SMODS.load_file("Items/Jokers.lua"))()
 assert(SMODS.load_file("Items/Consumables.lua"))()
 assert(SMODS.load_file("Items/Misc.lua"))()
+assert(SMODS.load_file("Lib/Utility.lua"))()

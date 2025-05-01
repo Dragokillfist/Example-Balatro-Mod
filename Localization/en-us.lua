@@ -69,6 +69,10 @@ return{
     misc = {
         dictionary = {
             exg_hand_Royal_Flush = "Royal Flush",
+            
+            exg_restart = "Requires a restart to take effect",
+            include_custom_consumable = "Enables the custom example consumable",
+            example_config_label = "Example Label",
         },
         poker_hand_descriptions = {
             ["exg_Royal_Flush"] = {
