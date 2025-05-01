@@ -1,25 +1,24 @@
 -- this is an Example file of how to make a tarot, spectal, planet and your own custom consumables for balatro
 
 SMODS.Consumable {
-	object_type = "Consumable",
-	set = "Tarot",
-	name = "example tarot",
-	key = "exampletarot",
-	pos = { x = 1, y = 2 },
-  cost=3,
-	atlas = "PLH",
-	can_use = function(self, card)
+	set = "Tarot", -- this is what you will use to determine what type of consumable this item is, in this case it is a tarot
+	name = "example tarot", -- this is the name that will be shown when hovering over the consumable in the collection
+	key = "exampletarot", -- this is the key that we will use to tell the localization what consumable to add the text and name to
+	pos = { x = 1, y = 2 }, -- this is the position of what sprite the consumable will use, balatro uses a 0 index system so the first sprite is 0,0 and the second sprite is 1,0 and so on
+  cost=3, -- this is the cost of the consumable in the shop, and its sell value is half of what the cost to buy is, but since its cost is not even we will round it down to 1 dollar
+	atlas = "PLH", -- this is the key that determines what atlas the consumable will use, this is the same as the key in the atlas function in main.lua
+	can_use = function(self, card) -- this is the function that determines if the consumable can be used or not, in this case it is useable if the number of highlighted cards is greater than or equal to the max_selected value in the config
 		return #G.hand.highlighted <= card.ability.extra.max_selected and #G.hand.highlighted > 0
 	end,
   config = { extra = {max_selected = 3}},
-	loc_vars = function(self, info_queue, card)
+	loc_vars = function(self, info_queue, card) -- this is the function that determines what variables will be shown when hovering over the consumable
     if card then
 	    return { vars = { card.ability.extra.max_selected } }
     else
 	    return { vars = { 0 } }
     end
 	end,
-	use = function(self, card, area, copier)
+	use = function(self, card, area, copier) -- this is the function that is used to make our consumable do its thing in this case we will be using it to change a number of selected cards into Diamonds
         local used_tarot = card or copier
         G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
             play_sound('tarot1')
@@ -30,8 +29,8 @@ SMODS.Consumable {
             G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.15,func = function() G.hand.highlighted[i]:flip();play_sound('card1', percent);G.hand.highlighted[i]:juice_up(0.3, 0.3);return true end }))
         end
         delay(0.2)
-        for i=1, #G.hand.highlighted do
-            G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.1,func = function() SMODS.change_base(G.hand.highlighted[i],'Diamonds',nil);return true end }))
+        for i=1, #G.hand.highlighted do -- this is the loop that will change the selected cards into Diamonds, you can change 'Diamonds' to any other suit such as 'Hearts', 'Clubs', or 'Spades'
+            G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.1,func = function() SMODS.change_base(G.hand.highlighted[i],'Diamonds',nil);return true end })) 
         end
         for i=1, #G.hand.highlighted do
             local percent = 0.85 + (i-0.999)/(#G.hand.highlighted-0.998)*0.3
@@ -43,7 +42,6 @@ SMODS.Consumable {
 }
 
 SMODS.Consumable {
-	object_type = "Consumable",
 	set = "Spectral",
 	name = "example spectral",
 	key = "examplespectral",
@@ -51,7 +49,7 @@ SMODS.Consumable {
 	hidden = false, -- set to true to hide the item from the collection
 	order = 21,
 	atlas = "PLH",
-	can_use = function(self, card)
+	can_use = function(self, card) -- in this can_use function we just make it return true so then it is always useable
 		return true
 	end,
   config = { extra = {num_jokers = 3}},

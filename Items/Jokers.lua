@@ -1,6 +1,6 @@
 -- this file is to explain both some very simple and some advance example of jokers
 
-SMODS.Joker{
+SMODS.Joker{ -- this is a joker that uses a localization file, you can modify the text that is displayed by this joker in the Localization/en-us.lua
     name ="Example Joker", -- the name that is shown when hovering over the joker in the collection
     key = "examplejoker", -- this is the key that we will use to tell the localization what joker to add the text and name to
     pos = {x = 0, y = 0}, -- this is the position of what sprite the joker will use, and this is the top left cornor of the sprite sheet
@@ -44,3 +44,24 @@ SMODS.Joker{
         end
     end,
 }
+
+--[[
+-- this joker is will not work, it is here for you to try and fix with what you know about with creating simple jokers and how to fix some crashes caused by them
+SMODS.Joker{
+    name = "Example Joker 3",
+    key = "examplejoker3",
+    pos = {x = 0, y = 0},
+    rarity = 1,
+    atlas = "PLH",
+    config = { extra = {mult = 4} },
+    cost = 6,
+    loc_vars = function (self, info_queue, center)
+        return { vars = { center.ability.extra.mult } }
+    end,
+    calculate = function (self, card, context)
+        if context.cardarea == G.jokers and context.joker_main then
+            return {mult = card.ability.extra.mult}
+        end
+    end,
+}
+--]]
