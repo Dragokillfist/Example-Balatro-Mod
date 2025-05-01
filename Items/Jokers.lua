@@ -13,7 +13,7 @@ SMODS.Joker{ -- this is a joker that uses a localization file, you can modify th
     end,
     calculate = function (self, card, context)
         if context.cardarea == G.jokers and context.joker_main then -- the context that is used to make the jokers ability trigger after cards have finished scoring
-            return {mult = card.ability.extra.mult} -- this is how we make the joker give the mult, you can try replacing mult in this case with other things such as: Chips, X_mult, or X_chips
+            return {mult = card.ability.extra.mult} -- this is how we make the joker give the mult, you can try replacing mult with other calculation keys which can be found here https://github.com/Steamodded/smods/blob/bb6548eb6741ad10b3e4160dae32305e37055815/src/utils.lua#L1430
         end
     end,
 }

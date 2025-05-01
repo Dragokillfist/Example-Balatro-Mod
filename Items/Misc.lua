@@ -1,9 +1,9 @@
 SMODS.PokerHand {
-    key = 'exg_Royal_Flush',
-    chips = 110,
-    mult = 9,
-    l_chips = 40,
-    l_mult = 4,
+    key = 'exg_Royal_Flush', -- the key that we use to identify what the game is initializing
+    chips = 110, -- the amount of chips the hand scores at level 1
+    mult = 9, -- the amount of mult that the hand uses at level 1
+    l_chips = 40,-- the amount of chips that is added to the hand with each level
+    l_mult = 4, -- the amount of mult that is added to the hand with each level
     example = {-- this is the example that is shown when hovering over the hand in the run info tab. these cards are all the spades suit
         { 'S_A',    true }, -- Ace
         { 'S_K',    true }, -- King
