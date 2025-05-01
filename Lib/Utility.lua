@@ -10,7 +10,7 @@ SMODS.current_mod.config_tab = function() -- the configs will be stored in confi
         nodes = {
             {n = G.UIT.C, config = { minw = G.ROOM.T.w*0.25, padding = 0.05 }, 
                 nodes = {
-                create_toggle{ -- creats a toggle button under the config menu
+                create_toggle{ -- creats a toggle button under the config menu, there are some other type of UI options you can use on line 31 to 36, the one on line 30 is the one we are currently using
                     label = localize("example_config_label"), -- the label that shows up next to the toggle button
                     info = {localize("exg_restart"), -- the text that will show below the toggle option
                     localize("include_custom_consumable")}, -- the text that will show below the toggle option
@@ -22,3 +22,16 @@ SMODS.current_mod.config_tab = function() -- the configs will be stored in confi
         }}
     }}
 end
+
+
+
+
+--[[
+create_toggle(args)
+UIBox_button(args)
+create_slider(args)
+create_text_input(args)
+simple_text_container(_loc, args)
+create_UIBox_generic_options(args)
+create_option_cycle(args)
+]]
