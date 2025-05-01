@@ -1,0 +1,15 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+# initiate variables
+[[patches]]
+[patches.pattern]
+target = "game.lua" # the target file you will patch the payload into
+pattern = "rental_rate = 3," # the pattern to search for in the target file
+position = "after" # this will put the payload after the pattern
+payload = '''
+exg_example_variable = 0,
+''' # this is what will be patched into the target file
+match_indent = true

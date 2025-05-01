@@ -1,5 +1,3 @@
-
-
 SMODS.PokerHand {
     key = 'exg_Royal_Flush',
     chips = 110,

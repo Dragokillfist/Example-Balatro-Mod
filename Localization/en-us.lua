@@ -56,6 +56,15 @@ return{
                 }
             },
         },
+        ExampleSet = {
+            c_exg_exampleconsume ={
+                name = "Example Custom Consumable",
+                text = {
+                    "this is a consumable of a custom type added by the mod",
+                    "when used it will give you {C:attention}#1#{} random planet cards",
+                }
+            }
+        },
     },
     misc = {
         dictionary = {

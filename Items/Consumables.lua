@@ -98,3 +98,64 @@ SMODS.Consumable {
     end,
     generate_ui = 0, -- this is the function that will be used to create the ui for the consumable, in this case it is just a simple text box that shows the name of the hand and its level
 }
+
+-- here we will make a custom consumable type
+
+SMODS.ConsumableType {
+  key = "ExampleSet", -- this is the key that we will use to tell the localization what consumable to add the text and name to
+  collection_rows = {3,4}, -- this is the number of rows that the consumable will take up in the collection, in this case it is 3 rows and 4 columns
+  primary_colour = HEX("FF0000"), -- this is the primary color of the consumable, you can change this to any color you want
+  secondary_colour = HEX("00FF00"), -- this is the secondary color of the consumable, you can change this to any color you want
+      loc_txt = { -- this is how you can add text to your consumable without having a localization file for your mod
+        collection = "example cards",
+        label = "example",
+        name = "Example Set",
+        undiscovered = {
+            name = "example not discovered",
+            text = {
+              "Purchase or use",
+              "this card in an",
+              "unseeded run to",
+              "learn what it does" -- this is the text that will be shown when the consumable is not discovered yet
+          }
+      },
+  },
+}
+
+SMODS.UndiscoveredSprite {
+  key = "exampleconsumable", -- this is the key that we will use to tell the localization what consumable to add the text and name to
+  pos = {x = 0, y = 0}, -- this is the position of what sprite the consumable will use, balatro uses a 0 index system so the first sprite is 0,0 and the second sprite is 1,0 and so on
+  atlas = "PLH", -- this is the key that determines what atlas the consumable will use, this is the same as the key in the atlas function in main.lua
+}
+
+SMODS.Consumable{
+  set = "ExampleSet", -- this is what you will use to determine what type of consumable this item is, in this case it is a example consumable
+  name = "example consumable", -- this is the name that will be shown when hovering over the consumable in the collection
+  key = "exampleconsume", -- this is the key that we will use to tell the localization what consumable to add the text and name to
+  pos = {x = 0, y = 0}, -- this is the position of what sprite the consumable will use, balatro uses a 0 index system so the first sprite is 0,0 and the second sprite is 1,0 and so on
+  cost = 3, -- this is the cost of the consumable in the shop, and its sell value is half of what the cost to buy is, but since its cost is not even we will round it down to 1 dollar
+  atlas = "PLH", -- this is the key that determines what atlas the consumable will use, this is the same as the key in the atlas function in main.lua
+  config = { extra = {card_create = 1}}, -- this is the config that will be used to determine how many cards will be created when the consumable is used, you can change this number to any number you want
+  loc_vars = function(self, info_queue, card) -- this is the function that determines what variables will be shown when hovering over the consumable
+    return { vars = { card.ability.extra.card_create } }
+  end,
+  can_use = function (self, card)
+    return true -- this is the function that determines if the consumable can be used or not, in this case it is useable if the number of highlighted cards is greater than or equal to the max_selected value in the config
+  end,
+  use = function(self, card, area, copier) -- this is the function that is used to make our consumable do its thing in this case we will be using it to create a number of cards
+    local used_tarot = card or copier
+    G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
+      play_sound('tarot1')
+      used_tarot:juice_up(0.3, 0.5)
+      return true end }))
+    for i=1,card.ability.extra.card_create do -- this is the loop that will create the number of cards that we want to create, you can change the number in the config to any number you want
+      G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.15,func = function() -- this is the function that will be used to create the cards
+        play_sound('card1')
+        local card = create_card("Planet", G.consumeables, nil, nil, nil, nil, nil, "exg_exampleconsume") -- this is the function that will be used to create the cards, you can change the type of card to any other type such as 'Joker', 'Tarot', or 'Spectral'
+        card:set_edition({negative = true}, true)
+        card:add_to_deck()
+        G.consumeables:emplace(card) -- this is the function that will be used to add the card to the deck
+        return true end }))
+    end
+  end,
+}
