@@ -7,6 +7,7 @@ SMODS.Atlas({
     py = 13,
 }):register()
 
+--[[
 SMODS.PokerHand {
     key = "examplehand",
     visible = true,
@@ -25,11 +26,14 @@ SMODS.PokerHand {
     pos = { x = 0, y = 0 },
     name = "Example Hand",
     evaluate = function(parts, hand)
-        local hand = G.hand:find_hand(parts)
-        if hand then
-            hand:juice_up(0.3, 0.5)
-            hand:highlight()
-            return true
+        return {hand = "exg_examplehand"}
+    end,
+    modify_display_text = function(self, hand, text)
+        local hand_text = SMODS.get_localization("misc.poker_hands." .. hand.hand)
+        if hand_text then
+            text = hand_text
         end
+        return text
     end,
 }
+--]]
