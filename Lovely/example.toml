@@ -5,7 +5,7 @@ priority = 0
 
 # initiate variables
 [[patches]]
-[patches.pattern]
+[patches.pattern] # this is a simple pattern patch you can make to initiate a global variable
 target = "game.lua" # the target file you will patch the payload into
 pattern = "rental_rate = 3," # the pattern to search for in the target file
 position = "after" # this will put the payload after the pattern
