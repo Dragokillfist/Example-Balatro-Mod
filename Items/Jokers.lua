@@ -1,7 +1,7 @@
 -- this file is to explain both some very simple and some advance example of jokers
 
 SMODS.Joker{
-    name ="Example Joker",
+    name ="Example Joker", -- the name that is shown when hovering over the joker in the collection
     key = "examplejoker", -- this is the key that we will use to tell the localization what joker to add the text and name to
     pos = {x = 0, y = 0}, -- this is the position of what sprite the joker will use, and this is the top left cornor of the sprite sheet
     rarity = 1, -- this is what determines the rarity of the joker (1 = common, 2 = uncommon, 3 = rare, and 4 = Legendary)
@@ -12,14 +12,14 @@ SMODS.Joker{
         return { vars = { center.ability.extra.mult } }
     end,
     calculate = function (self, card, context)
-        if context.cardarea == G.jokers and context.joker_main then
-            return {mult = card.ability.extra.mult}
+        if context.cardarea == G.jokers and context.joker_main then -- the context that is used to make the jokers ability trigger after cards have finished scoring
+            return {mult = card.ability.extra.mult} -- this is how we make the joker give the mult, you can try replacing mult in this case with other things such as: Chips, X_mult, or X_chips
         end
     end,
 }
 
 SMODS.Joker{
-    name = "Example Joker 2",
+    name = "Example Joker 2", -- the name that is shown when hovering over the joker in the collection
     key = "examplejoker2", -- this is the key that we will use to tell the localization what joker to add the text and name to
     pos = {x = 0, y = 0}, -- this is the position of what sprite the joker will use, and this is the top left cornor of the sprite sheet
     rarity = 1, -- this is what determines the rarity of the joker (1 = common, 2 = uncommon, 3 = rare, and 4 = Legendary)
