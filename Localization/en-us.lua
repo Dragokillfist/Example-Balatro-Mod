@@ -58,20 +58,38 @@ return{
             c_exg_exampleplanet2 = {
                 name = "Example Planet 2",
                 text = {
-                    "This is an example planet.",
-                    "It can be used to demonstrate how to create a planet.",
-                    "You can customize the text and effects as needed.",
-                    "upgrade #1#" -- the {C:mult} is the color of the text and #1# is the first variable that is in the jokers config and the {} ends the colored text without having to start a new line
+					"{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){} Level up",
+					"{C:attention}#2#",
+					"{C:mult}+#3#{} Mult and",
+					"{C:chips}+#4#{} chips", -- the {C:mult} is the color of the text and #1# is the first variable that is in the jokers config and the {} ends the colored text without having to start a new line
                 }
             },
         },
     },
     misc = {
-        dictopmaty = {
-            exg_hand_examplehand = "example hand"
+        dictionary = {
+            exg_hand_examplehand = "example hand",
+            exg_hand_Royal_Flush = "Royal Flush",
+        },
+        poker_hand_descriptions = {
+            ["exg_Royal_Flush"] = {
+                "5 cards in a row (consecutive ranks) with",
+                "all cards sharing the same suit",
+                "made of only Aces, tens, and face cards"
+            },
         },
         poker_hands = {
-            ["example hand"] = "example hand",
+            ["exg_Royal_Flush"] = "Royal Flush",
+            ["Straight Flush"] = "Straight Flush",
+            ["Four of a Kind"] = "Four of a Kind",
+            ["Full House"] = "Full House",
+            ["Flush"] = "Flush",
+            ["Straight"] = "Straight",
+            ["Three of a Kind"] = "Three of a Kind",
+            ["Two Pair"] = "Two Pair",
+            ["Pair"] = "Pair",
+            ["High Card"] = "High Card",
+            ["exg_examplehand"] = "example hand",
         },
     },
 }
