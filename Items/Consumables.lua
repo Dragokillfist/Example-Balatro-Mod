@@ -10,7 +10,7 @@ SMODS.Consumable {
 	can_use = function(self, card) -- this is the function that determines if the consumable can be used or not, in this case it is useable if the number of highlighted cards is greater than or equal to the max_selected value in the config
 		return #G.hand.highlighted <= card.ability.extra.max_selected and #G.hand.highlighted > 0
 	end,
-  config = { extra = {max_selected = 3}},
+  config = { extra = {max_selected = 3}}, -- this config determines how many cards can be selected when using the consumable, you can change this number to any number you want
 	loc_vars = function(self, info_queue, card) -- this is the function that determines what variables will be shown when hovering over the consumable
     if card then
 	    return { vars = { card.ability.extra.max_selected } }
@@ -42,18 +42,18 @@ SMODS.Consumable {
 }
 
 SMODS.Consumable {
-	set = "Spectral",
-	name = "example spectral",
-	key = "examplespectral",
-	pos = { x = 0, y = 0 },
+	set = "Spectral", -- this is what you will use to determine what type of consumable this item is, in this case it is a spectral
+	name = "example spectral", -- this is the name that will be shown when hovering over the consumable in the collection
+	key = "examplespectral", -- this is the key that we will use to tell the localization what consumable to add the text and name to
+	pos = { x = 0, y = 0 }, -- this is the position of what sprite the consumable will use, balatro uses a 0 index system so the first sprite is 0,0 and the second sprite is 1,0 and so on
+  cost = 3, -- this is the cost of the consumable in the shop, and its sell value is half of what the cost to buy is, but since its cost is not even we will round it down to 1 dollar
 	hidden = false, -- set to true to hide the item from the collection
-	order = 21,
-	atlas = "PLH",
+	atlas = "PLH", -- this is the key that determines what atlas the consumable will use, this is the same as the key in the atlas function in main.lua
 	can_use = function(self, card) -- in this can_use function we just make it return true so then it is always useable
 		return true
 	end,
-  config = { extra = {num_jokers = 3}},
-	loc_vars = function(self, info_queue, card)
+  config = { extra = {num_jokers = 3}}, -- this is the config that will be used to determine how many jokers will be created when the consumable is used, you can change this number to any number you want
+	loc_vars = function(self, info_queue, card) -- this is the function that determines what variables will be shown when hovering over the consumable
 	  info_queue[#info_queue + 1] = { key = "e_negative_consumable", set = "Edition", config = { extra = 1 } }
 	  return { vars = { card.ability.extra.num_jokers } }
 	end,
@@ -67,7 +67,7 @@ SMODS.Consumable {
 		G.E_MANAGER:add_event(Event({
 			trigger = "after",
 			delay = 0.4,
-			func = function()
+			func = function() -- this is the function that will be used to create the 3 random jokers, you can change the number of jokers by changing the number in this consumables config, which is just above the loc_vars
 				play_sound("timpani")
 				local card = create_card("Joker", G.jokers, nil, nil, nil, nil, nil, "exg_examplespectral")
         card:set_edition({negative = true}, true)
@@ -83,32 +83,18 @@ SMODS.Consumable {
 }
 
 SMODS.Consumable {
-  set = "Planet",
-  name = "example planet",
-  key = "exampleplanet",
-  config = { hand_type = "exg_examplehand" },
-  cost = 3,
-  atlas = "PLH",
-  pos = { x = 0, y = 0 },
-    can_use = function(self, card)
-        return true
+    set = 'Planet', -- this is what you will use to determine what type of consumable this item is, in this case it is a planet
+    key = 'exampleplanet', -- this is the key that we will use to tell the localization what consumable to add the text and name to
+    config = { hand_type = "exg_Royal_Flush", softlock = true}, -- this is the config that will be used to determine what type of hand this consumable will add a level to, in this case it is a Royal Flush
+    pos = {x = 0, y = 0 }, -- this is the position of what sprite the consumable will use, balatro uses a 0 index system so the first sprite is 0,0 and the second sprite is 1,0 and so on
+    atlas = 'PLH', -- this is the key that determines what atlas the consumable will use, this is the same as the key in the atlas function in main.lua
+    cost = 3, -- this is the cost of the consumable in the shop, and its sell value is half of what the cost to buy is, but since its cost is not even we will round it down to 1 dollar
+    loc_vars = function(self, info_queue, card) -- this is the function that determines what variables will be shown when hovering over the consumable
+        return { vars = { localize("exg_hand_Royal_Flush"), -- this is the name of the hand that we will be adding a level to
+        G.GAME.hands["exg_Royal_Flush"].level, -- this is the current level of the hand we are upgrading
+        G.GAME.hands["exg_Royal_Flush"].l_chips, -- this is how many chips we are adding to the hand
+        G.GAME.hands["exg_Royal_Flush"].l_mult, -- this is how much mult we are adding to the hand
+        } }
     end,
-    loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.hand_type, } }
-    end,
-    use = function(self, card, area, copier)
-        local used_tarot = card or copier
-        return{
-            play_sound("timpani"),
-            used_tarot:juice_up(0.3, 0.5),
-            function()
-                local hand = SMODS.PokerHand(self.config.hand_type)
-                hand:upgrade()
-                G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
-                    play_sound('timpani')
-                    used_tarot:juice_up(0.3, 0.5)
-                    return true end }))
-            end,
-        }
-    end,
+    generate_ui = 0, -- this is the function that will be used to create the ui for the consumable, in this case it is just a simple text box that shows the name of the hand and its level
 }

@@ -49,26 +49,16 @@ return{
             c_exg_exampleplanet = {
                 name = "Example Planet",
                 text = {
-                    "This is an example planet.",
-                    "It can be used to demonstrate how to create a planet.",
-                    "You can customize the text and effects as needed.",
-                    "upgrade example hand" -- the {C:mult} is the color of the text and #1# is the first variable that is in the jokers config and the {} ends the colored text without having to start a new line
-                }
-            },
-            c_exg_exampleplanet2 = {
-                name = "Example Planet 2",
-                text = {
 					"{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){} Level up",
 					"{C:attention}#2#",
 					"{C:mult}+#3#{} Mult and",
-					"{C:chips}+#4#{} chips", -- the {C:mult} is the color of the text and #1# is the first variable that is in the jokers config and the {} ends the colored text without having to start a new line
+					"{C:chips}+#4#{} chips",
                 }
             },
         },
     },
     misc = {
         dictionary = {
-            exg_hand_examplehand = "example hand",
             exg_hand_Royal_Flush = "Royal Flush",
         },
         poker_hand_descriptions = {
@@ -89,7 +79,6 @@ return{
             ["Two Pair"] = "Two Pair",
             ["Pair"] = "Pair",
             ["High Card"] = "High Card",
-            ["exg_examplehand"] = "example hand",
         },
     },
 }
