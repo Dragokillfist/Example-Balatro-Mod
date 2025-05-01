@@ -1,5 +1,6 @@
 -- this is where we will show you how to make a config menu and some other utility functions for your mod
 
+-- the 3 lines with the localize in them are defined in the en-us file towards the bottom under dictionary
 SMODS.current_mod.config_tab = function() -- the configs will be stored in config.lua and you can find the file of the configs in "Roaming/balatro/config" then ExampleMod.jkr for this mod
     local scale = 5/6
     return {n=G.UIT.ROOT, 
