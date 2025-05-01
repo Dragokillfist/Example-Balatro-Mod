@@ -128,6 +128,7 @@ if ExampleMod.config.example_config_toggle then -- if this config option is togg
     atlas = "PLH", -- this is the key that determines what atlas the consumable will use, this is the same as the key in the atlas function in main.lua
   }
 end
+
 if ExampleMod.config.example_config_toggle then -- if this config option is toggled o true, then this consumable will be added to the game, but if its false then it will not show up in the collection
   SMODS.Consumable{
     set = "ExampleSet", -- this is what you will use to determine what type of consumable this item is, in this case it is a example consumable
@@ -153,9 +154,9 @@ if ExampleMod.config.example_config_toggle then -- if this config option is togg
         G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.15,func = function() -- this is the function that will be used to create the cards
           play_sound('card1')
           local card = create_card("Planet", G.consumeables, nil, nil, nil, nil, nil, "exg_exampleconsume") -- this is the function that will be used to create the cards, you can change the type of card to any other type such as 'Joker', 'Tarot', or 'Spectral'
-          card:set_edition({negative = true}, true)
-          card:add_to_deck()
-          G.consumeables:emplace(card) -- this is the function that will be used to add the card to the deck
+          card:set_edition({negative = true}, true) -- sets the created cards edition to negative upon creation
+          card:add_to_deck() -- this is what actually adds the card to the deck
+          G.consumeables:emplace(card) -- this is what places the created card in the specified area, in this case it is the consumable card area 
           return true end }))
       end
     end,

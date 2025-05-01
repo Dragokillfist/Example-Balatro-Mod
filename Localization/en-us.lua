@@ -13,6 +13,7 @@ return{
                     "this Joker give {C:mult}+#1#{} mult" -- the {C:mult} is the color of the text and #1# is the first variable that is in the jokers config and the {} ends the colored text without having to start a new line
                 }
             },
+            -- example joker 3 is used for people to see if htey can identify the problems and fix it, its not a requierment, but it is a good way for people to understand how you would fix some of these weird bugs and unintentional behavior
             j_exg_examplejoker3 = {
                 name = "Example Joker 3",
                 text = {
@@ -41,7 +42,7 @@ return{
                     "This is an example spectral.",
                     "It can be used to demonstrate how to create a spectral.",
                     "You can customize the text and effects as needed.",
-                    "creates 3 negative jokers"
+                    "creates #1# negative jokers"
                 }
             },
         },
@@ -56,7 +57,7 @@ return{
                 }
             },
         },
-        ExampleSet = {
+        ExampleSet = { -- this is how we add localization for a custom consumable type
             c_exg_exampleconsume ={
                 name = "Example Custom Consumable",
                 text = {
@@ -69,7 +70,7 @@ return{
     misc = {
         dictionary = {
             exg_hand_Royal_Flush = "Royal Flush",
-            
+
             exg_restart = "Requires a restart to take effect",
             include_custom_consumable = "Enables the custom example consumable",
             example_config_label = "Example Label",
@@ -83,15 +84,6 @@ return{
         },
         poker_hands = {
             ["exg_Royal_Flush"] = "Royal Flush",
-            ["Straight Flush"] = "Straight Flush",
-            ["Four of a Kind"] = "Four of a Kind",
-            ["Full House"] = "Full House",
-            ["Flush"] = "Flush",
-            ["Straight"] = "Straight",
-            ["Three of a Kind"] = "Three of a Kind",
-            ["Two Pair"] = "Two Pair",
-            ["Pair"] = "Pair",
-            ["High Card"] = "High Card",
         },
     },
 }
