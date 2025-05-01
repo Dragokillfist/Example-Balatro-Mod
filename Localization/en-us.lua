@@ -55,6 +55,15 @@ return{
                     "upgrade example hand" -- the {C:mult} is the color of the text and #1# is the first variable that is in the jokers config and the {} ends the colored text without having to start a new line
                 }
             },
+            c_exg_exampleplanet2 = {
+                name = "Example Planet 2",
+                text = {
+                    "This is an example planet.",
+                    "It can be used to demonstrate how to create a planet.",
+                    "You can customize the text and effects as needed.",
+                    "upgrade #1#" -- the {C:mult} is the color of the text and #1# is the first variable that is in the jokers config and the {} ends the colored text without having to start a new line
+                }
+            },
         },
     },
     misc = {

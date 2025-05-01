@@ -10,6 +10,7 @@ SMODS.Atlas({
 })
 
 -- this is where we will regester other files from within this mods folder such as stuff from our Items folder, tho if you dont want to load that file you can comment it out by adding "--" aty the start of the line
-assert(SMODS.load_file("Items/jokers.lua"))()
-assert(SMODS.load_file("Items/consumables.lua"))()
-assert(SMODS.load_file("Items/misc.lua"))()
+-- when setting the files path you need to make sure that you are using the correct capitalization, because if you dont, your mod will crash on linux platforms
+assert(SMODS.load_file("Items/Jokers.lua"))()
+assert(SMODS.load_file("Items/Consumables.lua"))()
+assert(SMODS.load_file("Items/Misc.lua"))()
