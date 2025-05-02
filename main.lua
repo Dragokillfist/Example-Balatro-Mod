@@ -1,5 +1,8 @@
 -- this file is an example of what is generally in a mian lua file 
 
+-- the SMODS functions such as SMODS.Joker are also case sensitive, so if you use SMODS.joker instead of SMODS.Joker the joker you coded will not apear in the game, the same goes for any other SMODS meathod
+
+
 ExampleMod = SMODS.current_mod
 ExampleMod_config = ExampleMod.config -- this is the config file that is used to store the mods settings, and it is used to make sure that the mod is loaded correctly
 ExampleMod.enabled = copy_table(ExampleMod_config) -- this is the current state of the mods settings, and it is used to make sure that the mod is loaded correctly
@@ -14,6 +17,8 @@ SMODS.Atlas({
     px = 71,
     py = 95,-- the standard 1x size of any joker or consumable is 71x95
 })
+-- do note that the key and path of an atlas is case sensitive, so make sure you are using the correct capitalization
+
 
 -- this is where we will regester other files from within this mods folder such as stuff from our Items folder, tho if you dont want to load that file you can comment it out by adding "--" aty the start of the line
 -- when setting the files path you need to make sure that you are using the correct capitalization, because if you dont, your mod will crash on linux platforms

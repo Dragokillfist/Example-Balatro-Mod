@@ -1,4 +1,4 @@
-return{
+return{ -- things in this file ARE case sensitive, so make sure you are using the correct capitalization
     descriptions = {
         back ={
             

@@ -5,6 +5,7 @@ SMODS.PokerHand {
     l_chips = 40,-- the amount of chips that is added to the hand with each level
     l_mult = 4, -- the amount of mult that is added to the hand with each level
     example = {-- this is the example that is shown when hovering over the hand in the run info tab. these cards are all the spades suit
+    --
         { 'S_A',    true }, -- Ace
         { 'S_K',    true }, -- King
         { 'S_Q',    true }, -- Queen
