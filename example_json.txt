@@ -4,7 +4,7 @@
 	"display_name": "Example",
 	"author": ["dragokillfist"],
 	"description": "A Example Mod for Learning Balatro Modding with Steamodded(SMODS).",
-	"prefix": "exg",
+	"prefix": "exmp",
 	"main_file": "main.lua",
 	"priority": 0,
 	"badge_colour": "321d0e",

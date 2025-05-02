@@ -4,7 +4,7 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
             
         },
         Joker = {
-            j_exg_examplejoker = {
+            j_exmp_examplejoker = {
                 name = "Example Joker",
                 text = {
                     "This is an example joker.",
@@ -14,7 +14,7 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
                 }
             },
             -- example joker 3 is used for people to see if htey can identify the problems and fix it, its not a requierment, but it is a good way for people to understand how you would fix some of these weird bugs and unintentional behavior
-            j_exg_examplejoker3 = {
+            j_exmp_examplejoker3 = {
                 name = "Example Joker 3",
                 text = {
                     "This is an example joker.",
@@ -23,7 +23,7 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
                     "this Joker give {C:white}+#2# mult"
                 }
             },
-            j_exg_examplejoker4 = {
+            j_exmp_examplejoker4 = {
                 name = "Example Joker 4",
                 text = {
                     "This is an example of a scaling joker",
@@ -34,7 +34,7 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
             },
         },
         Tarot = {
-            c_exg_exampletarot = {
+            c_exmp_exampletarot = {
                 name = "Example Tarot",
                 text = {
                     "This is an example tarot.",
@@ -45,7 +45,7 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
             },
         },
         Spectral = {
-            c_exg_examplespectral = {
+            c_exmp_examplespectral = {
                 name = "Example Spectral",
                 text = {
                     "This is an example spectral.",
@@ -56,7 +56,7 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
             },
         },
         Planet = {
-            c_exg_exampleplanet = {
+            c_exmp_exampleplanet = {
                 name = "Example Planet",
                 text = {
 					"{S:0.8}({S:0.8,V:1}lvl.#1#{S:0.8}){} Level up",
@@ -67,7 +67,7 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
             },
         },
         ExampleSet = { -- this is how we add localization for a custom consumable type
-            c_exg_exampleconsume ={
+            c_exmp_exampleconsume ={
                 name = "Example Custom Consumable",
                 text = {
                     "this is a consumable of a custom type added by the mod",
@@ -78,9 +78,9 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
     },
     misc = {
         dictionary = {
-            exg_hand_Royal_Flush = "Royal Flush",
+            exmp_hand_Royal_Flush = "Royal Flush",
 
-            exg_restart = "Requires a restart to take effect",
+            exmp_restart = "Requires a restart to take effect",
             include_custom_consumable = "Enables the custom example consumable",
             example_config_label = "Example Label",
             extra_hands = "Extra Hands",
@@ -89,14 +89,14 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
             extra_discards_label = "Adds Extra discards for testing",
         },
         poker_hand_descriptions = {
-            ["exg_Royal_Flush"] = {
+            ["exmp_Royal_Flush"] = {
                 "5 cards in a row (consecutive ranks) with",
                 "all cards sharing the same suit",
                 "made of only Aces, tens, and face cards"
             },
         },
         poker_hands = {
-            ["exg_Royal_Flush"] = "Royal Flush",
+            ["exmp_Royal_Flush"] = "Royal Flush",
         },
     },
 }

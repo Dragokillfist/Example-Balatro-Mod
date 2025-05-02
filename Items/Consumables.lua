@@ -69,7 +69,7 @@ SMODS.Consumable {
 			delay = 0.4,
 			func = function() -- this is the function that will be used to create the 3 random jokers, you can change the number of jokers by changing the number in this consumables config, which is just above the loc_vars
 				play_sound("timpani")
-				local card = create_card("Joker", G.jokers, nil, nil, nil, nil, nil, "exg_examplespectral")
+				local card = create_card("Joker", G.jokers, nil, nil, nil, nil, nil, "exmp_examplespectral")
         card:set_edition({negative = true}, true)
 				card:add_to_deck()
 				G.jokers:emplace(card)
@@ -85,15 +85,15 @@ SMODS.Consumable {
 SMODS.Consumable {
     set = 'Planet', -- this is what you will use to determine what type of consumable this item is, in this case it is a planet
     key = 'exampleplanet', -- this is the key that we will use to tell the localization what consumable to add the text and name to
-    config = { hand_type = "exg_Royal_Flush", softlock = true}, -- this is the config that will be used to determine what type of hand this consumable will add a level to, in this case it is a Royal Flush
+    config = { hand_type = "exmp_Royal_Flush", softlock = true}, -- this is the config that will be used to determine what type of hand this consumable will add a level to, in this case it is a Royal Flush
     pos = {x = 0, y = 0 }, -- this is the position of what sprite the consumable will use, balatro uses a 0 index system so the first sprite is 0,0 and the second sprite is 1,0 and so on
     atlas = 'PLH', -- this is the key that determines what atlas the consumable will use, this is the same as the key in the atlas function in main.lua
     cost = 3, -- this is the cost of the consumable in the shop, and its sell value is half of what the cost to buy is, but since its cost is not even we will round it down to 1 dollar
     loc_vars = function(self, info_queue, card) -- this is the function that determines what variables will be shown when hovering over the consumable
-        return { vars = { localize("exg_hand_Royal_Flush"), -- this is the name of the hand that we will be adding a level to
-        G.GAME.hands["exg_Royal_Flush"].level, -- this is the current level of the hand we are upgrading
-        G.GAME.hands["exg_Royal_Flush"].l_chips, -- this is how many chips we are adding to the hand
-        G.GAME.hands["exg_Royal_Flush"].l_mult, -- this is how much mult we are adding to the hand
+        return { vars = { localize("exmp_hand_Royal_Flush"), -- this is the name of the hand that we will be adding a level to
+        G.GAME.hands["exmp_Royal_Flush"].level, -- this is the current level of the hand we are upgrading
+        G.GAME.hands["exmp_Royal_Flush"].l_chips, -- this is how many chips we are adding to the hand
+        G.GAME.hands["exmp_Royal_Flush"].l_mult, -- this is how much mult we are adding to the hand
         } }
     end,
     generate_ui = 0, -- this is the function that will be used to create the ui for the consumable, in this case it is just a simple text box that shows the name of the hand and its level
@@ -153,7 +153,7 @@ if ExampleMod.config.example_config_toggle then -- if this config option is togg
       for i=1,card.ability.extra.card_create do -- this is the loop that will create the number of cards that we want to create, you can change the number in the config to any number you want
         G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.15,func = function() -- this is the function that will be used to create the cards
           play_sound('card1')
-          local card = create_card("Planet", G.consumeables, nil, nil, nil, nil, nil, "exg_exampleconsume") -- this is the function that will be used to create the cards, you can change the type of card to any other type such as 'Joker', 'Tarot', or 'Spectral'
+          local card = create_card("Planet", G.consumeables, nil, nil, nil, nil, nil, "exmp_exampleconsume") -- this is the function that will be used to create the cards, you can change the type of card to any other type such as 'Joker', 'Tarot', or 'Spectral'
           card:set_edition({negative = true}, true) -- sets the created cards edition to negative upon creation
           card:add_to_deck() -- this is what actually adds the card to the deck
           G.consumeables:emplace(card) -- this is what places the created card in the specified area, in this case it is the consumable card area 

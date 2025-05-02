@@ -12,7 +12,7 @@ SMODS.current_mod.config_tab = function() -- the configs will be stored in confi
                 nodes = {
                 create_toggle{ -- creats a toggle button under the config menu, there are some other type of UI options you can use on line 31 to 36, the one on line 30 is the one we are currently using
                     label = localize("example_config_label"), -- the label that shows up next to the toggle button
-                    info = {localize("exg_restart"), -- the text that will show below the toggle option
+                    info = {localize("exmp_restart"), -- the text that will show below the toggle option
                     localize("include_custom_consumable")}, -- the text that will show below the toggle option
                     active_colour = ExampleMod.badge_colour, -- the color of the toggle when it is on
                     ref_table = ExampleMod.config, -- the table of which the toggle will be added to
@@ -24,7 +24,7 @@ SMODS.current_mod.config_tab = function() -- the configs will be stored in confi
             nodes = {
                 create_toggle{
                     label = localize("example_config_label"),
-                    info = {localize("exg_restart"), localize("include_custom_consumable")},
+                    info = {localize("exmp_restart"), localize("include_custom_consumable")},
                     active_colour = ExampleMod.badge_colour,
                     ref_table = ExampleMod.config,
                     ref_value = "extra_hands"
