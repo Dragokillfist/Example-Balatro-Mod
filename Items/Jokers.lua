@@ -63,3 +63,25 @@ SMODS.Joker{
     end,
 }
 --]]
+
+SMODS.Joker {
+    key = "examplejoker4",
+    pos = {x = 0, y = 0},
+    rarity = 1,
+    atlas = "PLH",
+    config = { extra = {mult = 4, mult_mod = 0.5} },
+    cost = 6,
+    loc_vars = function (self, info_queue, center)
+        return { vars = { center.ability.extra.mult, center.ability.extra.mult_mod } }
+    end,
+    calculate = function (self, card, context)
+            local mult = card.ability.extra.mult
+            local mult_mod = card.ability.extra.mult_mod
+        if context.individual and context.cardarea == G.play and context.main_scoring then
+            return {mult = mult + mult_mod}
+        end
+        if context.cardarea == G.jokers and context.joker_main then
+            return {mult = card.ability.extra.mult}
+        end
+    end,
+}

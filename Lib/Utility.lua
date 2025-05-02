@@ -19,7 +19,18 @@ SMODS.current_mod.config_tab = function() -- the configs will be stored in confi
                     ref_value = "example_config_toggle" -- the value that this toggle uses
                 }
             }}
-        }}
+        }},
+        {n = G.UIT.C, config = { minw = G.ROOM.T.w*0.25, padding = 0.05 }, 
+            nodes = {
+                create_toggle{
+                    label = localize("example_config_label"),
+                    info = {localize("exg_restart"), localize("include_custom_consumable")},
+                    active_colour = ExampleMod.badge_colour,
+                    ref_table = ExampleMod.config,
+                    ref_value = "extra_hands"
+                }
+            }
+        }
     }}
 end
 

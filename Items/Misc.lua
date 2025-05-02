@@ -1,5 +1,9 @@
+
+
+
+-- this pokerhand example is an adaptation of the SMODS example Royal Flush at https://github.com/Steamodded/examples/blob/d43316d97bc927f3de431dd84c0283d41e69761a/Mods/RoyalFlush/RoyalFlush.lua
 SMODS.PokerHand {
-    key = 'exg_Royal_Flush', -- the key that we use to identify what the game is initializing
+    key = 'Royal_Flush', -- the key that we use to identify what the game is initializing
     chips = 110, -- the amount of chips the hand scores at level 1
     mult = 9, -- the amount of mult that the hand uses at level 1
     l_chips = 40,-- the amount of chips that is added to the hand with each level
@@ -12,9 +16,6 @@ SMODS.PokerHand {
         { 'S_J',    true }, -- Jack
         { 'S_T',    true }, -- 10
     },
-    loc_vars = function(self, info_queue, card)
-        info_queue[#info_queue + 1] = { key = "exg_hand_Royal_Flush", set = "misc" } -- this is how we set the text that is shown when overing over the hand type in the run info tab
-    end,
     evaluate = function(parts, hand)
         if next(parts._flush) and next(parts._straight) then -- chaecks if the selected cards make up both a flush and a straight
             local _strush = SMODS.merge_lists(parts._flush, parts._straight) -- this is a local value we make to make it easier to code in, as well as making everything look more neat

@@ -23,6 +23,15 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
                     "this Joker give {C:white}+#2# mult"
                 }
             },
+            j_exg_examplejoker4 = {
+                name = "Example Joker 4",
+                text = {
+                    "This is an example of a scaling joker",
+                    "this joker will gain {C:mult}#2#{} additional mult",
+                    "Everytime a card is scored",
+                    "{C:inactive}(currently gives {C:mult}+#1#{} {C:inactive}mult)"
+                }
+            },
         },
         Tarot = {
             c_exg_exampletarot = {
@@ -74,6 +83,10 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
             exg_restart = "Requires a restart to take effect",
             include_custom_consumable = "Enables the custom example consumable",
             example_config_label = "Example Label",
+            extra_hands = "Extra Hands",
+            extra_hands_label = "Adds Extra hands for testing",
+            extra_discards = "Extra Discards",
+            extra_discards_label = "Adds Extra discards for testing",
         },
         poker_hand_descriptions = {
             ["exg_Royal_Flush"] = {
