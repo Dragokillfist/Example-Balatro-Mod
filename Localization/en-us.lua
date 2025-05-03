@@ -89,7 +89,7 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
             extra_discards = "Extra Discards",
             extra_discards_label = "Extra discards",
             insert_text_here = "Insert text here",
-            only_faces = "Only Face Cards",
+            only_faces = "NO Face Cards",
             random_cards = "Random Cards",
             option_1 = "meh",
             option_2 = "ok",

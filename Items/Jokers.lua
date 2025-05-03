@@ -75,10 +75,8 @@ SMODS.Joker {
         return { vars = { center.ability.extra.mult, center.ability.extra.mult_mod } }
     end,
     calculate = function (self, card, context)
-            local mult = card.ability.extra.mult
-            local mult_mod = card.ability.extra.mult_mod
-        if context.individual and context.cardarea == G.play and context.main_scoring then
-            return {mult = mult + mult_mod}
+        if context.individual and context.cardarea == G.play then
+            card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_mod
         end
         if context.cardarea == G.jokers and context.joker_main then
             return {mult = card.ability.extra.mult}

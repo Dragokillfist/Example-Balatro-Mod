@@ -7,6 +7,7 @@ return {
     example_value = 0,
     },
     options = {
+        option_0 = 1,
         option_1 = 10,
         option_2 = 20,
         option_3 = 30,
