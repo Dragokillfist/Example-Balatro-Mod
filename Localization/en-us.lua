@@ -13,7 +13,7 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
                     "this Joker give {C:mult}+#1#{} mult" -- the {C:mult} is the color of the text and #1# is the first variable that is in the jokers config and the {} ends the colored text without having to start a new line
                 }
             },
-            -- example joker 3 is used for people to see if htey can identify the problems and fix it, its not a requierment, but it is a good way for people to understand how you would fix some of these weird bugs and unintentional behavior
+            -- example joker 3 is used for people to see if they can identify the problems and fix it, its not a requirement, but it is a good way for people to understand how you would fix some of these weird bugs and unintentional behavior
             j_exmp_examplejoker3 = {
                 name = "Example Joker 3",
                 text = {
@@ -28,7 +28,7 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
                 text = {
                     "This is an example of a scaling joker",
                     "this joker will gain {C:mult}#2#{} additional mult",
-                    "Everytime a card is scored",
+                    "every time a card is scored",
                     "{C:inactive}(currently gives {C:mult}+#1#{} {C:inactive}mult)"
                 }
             },

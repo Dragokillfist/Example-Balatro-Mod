@@ -10,7 +10,7 @@ SMODS.current_mod.config_tab = function() -- the configs will be stored in confi
                 nodes = {
                     {n = G.UIT.C, config = { minw = G.ROOM.T.w*0.25, padding = 0.05 }, 
                         nodes = {
-                            create_toggle{ -- creats a toggle button under the config menu, there are some other type of UI options you can use on line 31 to 36, the one on line 30 is the one we are currently using
+                            create_toggle{ -- creates a toggle button under the config menu, there are some other type of UI options you can use on line 83 to 88, the one on line 82 is the one we are currently using
                                 label = localize("example_config_label"), -- the label that shows up next to the toggle button
                                 info = {localize("exmp_restart"), -- the text that will show below the toggle option
                                 localize("include_custom_consumable")}, -- the text that will show below the toggle option
@@ -49,6 +49,7 @@ SMODS.current_mod.config_tab = function() -- the configs will be stored in confi
                     create_slider{
                         label = localize("extra_hands_label"),
                         info = {localize("exmp_restart"), localize("insert_text_here")},
+                        colour = G.C.BLUE, -- the color of the slider
                         min = 0, max = 100, -- the min and max values of the slider
                         w = G.ROOM.T.w*0.25, -- the width of the slider
                         active_colour = ExampleMod.badge_colour,
