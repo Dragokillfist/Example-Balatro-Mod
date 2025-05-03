@@ -84,9 +84,12 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
             include_custom_consumable = "Enables the custom example consumable",
             example_config_label = "Example Label",
             extra_hands = "Extra Hands",
-            extra_hands_label = "Adds Extra hands for testing",
+            extra_hands_label = "Extra hands",
             extra_discards = "Extra Discards",
-            extra_discards_label = "Adds Extra discards for testing",
+            extra_discards_label = "Extra discards",
+            insert_text_here = "Insert text here",
+            only_faces = "Only Face Cards",
+            random_cards = "Random Cards",
         },
         poker_hand_descriptions = {
             ["exmp_Royal_Flush"] = {

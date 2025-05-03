@@ -1,5 +1,8 @@
 return {
-    example_config_toggle = true,
-    extra_hands = false,
-    extra_discards = false,
+    example = {
+    bonus_starting_hands = 0,
+    bonus_starting_discards = 0,
+    only_face_cards = false,
+    random_cards = false,
+    }
 }
