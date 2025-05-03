@@ -12,6 +12,7 @@ return {
         option_2 = 20,
         option_3 = 30,
         option_4 = 40,
+        option_inf = 5000,
     },
     multiplier = 1,
 }

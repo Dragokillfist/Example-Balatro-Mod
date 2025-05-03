@@ -2,7 +2,7 @@
 
 SMODS.Joker{ -- this is a joker that uses a localization file, you can modify the text that is displayed by this joker in the Localization/en-us.lua
     key = "examplejoker", -- this is the key that we will use to tell the localization what joker to add the text and name to
-    pos = {x = 0, y = 0}, -- this is the position of what sprite the joker will use, and this is the top left cornor of the sprite sheet
+    pos = {x = 0, y = 0}, -- this is what determines the sprite that the joekr will use from the atlas it is assigned to
     rarity = 1, -- this is what determines the rarity of the joker (1 = common, 2 = uncommon, 3 = rare, and 4 = Legendary)
     atlas = "PLH", -- this is the key that determines what atlas the joker will use, this is the same as the key in the atlas function in main.lua
     config = { extra = {mult = 4} },  -- the config is used to make basic effects for our jokers
@@ -18,12 +18,12 @@ SMODS.Joker{ -- this is a joker that uses a localization file, you can modify th
 }
 
 SMODS.Joker{
-    key = "examplejoker2", -- this is the key that we will use to tell the localization what joker to add the text and name to
-    pos = {x = 0, y = 0}, -- this is the position of what sprite the joker will use, and this is the top left cornor of the sprite sheet
-    rarity = 1, -- this is what determines the rarity of the joker (1 = common, 2 = uncommon, 3 = rare, and 4 = Legendary)
-    atlas = "PLH", -- this is the key that determines what atlas the joker will use, this is the same as the key in the atlas function in main.lua
-    config = { extra = {mult = 4} },  -- the config is used to make basic effects for our jokers
-    cost = 6, -- this is the cost of the joker in the shop, and its sell value is half of what the cost to buy is, so this joker would sell for 3 dollars
+    key = "examplejoker2",
+    pos = {x = 0, y = 0},
+    rarity = 1,
+    atlas = "PLH",
+    config = { extra = {mult = 4} },  
+    cost = 6,
     loc_txt = { -- this is how you can add text to your joker without having a localization file for your mod
         name = "Example Joker 2",
         text = {

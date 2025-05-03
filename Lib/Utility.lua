@@ -82,6 +82,7 @@ SMODS.current_mod.config_tab = function() -- the configs will be stored in confi
                             ExampleMod.config.options.option_2,
                             ExampleMod.config.options.option_3,
                             ExampleMod.config.options.option_4,
+                            ExampleMod.config.options.option_inf,
                         },
                         label = ("Starting Money Multiplier"), -- the label that shows up next to the option cycle
                         ref_value = "example_value", -- the value that this option cycle uses
@@ -97,7 +98,7 @@ end
 
 G.FUNCS.ExampleCallback = function(e)
     ExampleMod.config.multiplier = e.to_key -- this is the value that will be used in the config file, and it will be saved to the config file when the game is closed
-    local mult_ops = { 1, 10, 20, 30, 40 } -- this is the list of options that will be used in the option cycle, and it will be saved to the config file when the game is closed
+    local mult_ops = { 1, 10, 20, 30, 40, 1e10, } -- this is the list of options that will be used in the option cycle, and it will be saved to the config file when the game is closed
     ExampleMod.config.example.example_value = mult_ops[e.to_key] 
 end
 
