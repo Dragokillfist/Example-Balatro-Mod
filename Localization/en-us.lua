@@ -81,6 +81,7 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
             exmp_hand_Royal_Flush = "Royal Flush",
 
             exmp_restart = "Requires a restart to take effect",
+            no_exmp_restart = "takes effect at the start of the next run",
             include_custom_consumable = "Enables the custom example consumable",
             example_config_label = "Example Label",
             extra_hands = "Extra Hands",
@@ -90,6 +91,10 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
             insert_text_here = "Insert text here",
             only_faces = "Only Face Cards",
             random_cards = "Random Cards",
+            option_1 = "meh",
+            option_2 = "ok",
+            option_3 = "good",
+            option_4 = "great",
         },
         poker_hand_descriptions = {
             ["exmp_Royal_Flush"] = {

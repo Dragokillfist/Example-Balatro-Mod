@@ -4,5 +4,13 @@ return {
     bonus_starting_discards = 0,
     only_face_cards = false,
     random_cards = false,
-    }
+    example_value = 0,
+    },
+    options = {
+        option_1 = 10,
+        option_2 = 20,
+        option_3 = 30,
+        option_4 = 40,
+    },
+    multiplier = 1,
 }
