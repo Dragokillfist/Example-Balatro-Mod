@@ -2,6 +2,13 @@
 
 -- the SMODS functions such as SMODS.Joker are also case sensitive, so if you use SMODS.joker instead of SMODS.Joker the joker you coded will not appear in the game, the same goes for any other SMODS method
 
+if not ExampleMod then -- this is used to make sure that the mod is not loaded multiple times, and it is used to make sure that the mod is not loaded in a different order than it should be
+    ExampleMod = {}
+end
+
+ExampleMod = {
+    show_options_button = true,
+}
 
 ExampleMod = SMODS.current_mod
 ExampleMod_config = ExampleMod.config -- this is the config file that is used to store the mods settings, and it is used to make sure that the mods config is loaded correctly

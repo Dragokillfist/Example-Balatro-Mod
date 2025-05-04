@@ -1,7 +1,7 @@
 -- this is where we will show you how to make a config menu and some other utility functions for your mod
 
 -- the 3 lines with the localize in them are defined in the en-us file towards the bottom under dictionary
-SMODS.current_mod.config_tab = function() -- the configs will be stored in config.lua and you can find the file of the configs in "Roaming/balatro/config" then ExampleMod.jkr for this mod
+ExampleMod.config_tab = function() -- the configs will be stored in config.lua and you can find the file of the configs in "Roaming/balatro/config" then ExampleMod.jkr for this mod
     local scale = 5/6
     return {n=G.UIT.ROOT, 
         config = {align = "cl", minh = G.ROOM.T.h*0.5, padding = 0.0, r = 0.1, colour = G.C.GREY}, 
@@ -52,7 +52,7 @@ SMODS.current_mod.config_tab = function() -- the configs will be stored in confi
                                 label = localize("extra_hands_label"),
                                 info = {localize("no_exmp_restart"), localize("insert_text_here")},
                                 colour = G.C.BLUE, -- the color of the slider
-                                min = 0, max = 100, -- the min and max values of the slider
+                                min = 0, max = 10000, -- the min and max values of the slider
                                 w = G.ROOM.T.w*0.25, -- the width of the slider
                                 active_colour = ExampleMod.badge_colour,
                                 ref_table = ExampleMod.config.example,
@@ -65,7 +65,7 @@ SMODS.current_mod.config_tab = function() -- the configs will be stored in confi
                             create_slider{
                                 label = localize("extra_discards_label"), -- the label that is displayed just above the slider
                                 info = {localize("no_exmp_restart"), localize("insert_text_here")},
-                                min = 0, max = 100, -- the min and max values of the slider
+                                min = 0, max = 10000, -- the min and max values of the slider
                                 w = G.ROOM.T.w*0.25, -- the width of the slider
                                 active_colour = ExampleMod.badge_colour,
                                 ref_table = ExampleMod.config.example,
@@ -79,7 +79,7 @@ SMODS.current_mod.config_tab = function() -- the configs will be stored in confi
                                 label = ("Win Ante Slider"),
                                 info = {localize("no_exmp_restart"), localize("insert_text_here")},
                                 colour = G.C.BLUE, -- the color of the slider
-                                min = 8, max = 100, -- the min and max values of the slider
+                                min = 8, max = 10000, -- the min and max values of the slider
                                 w = G.ROOM.T.w*0.25, -- the width of the slider
                                 active_colour = ExampleMod.badge_colour,
                                 ref_table = G.GAME,
@@ -128,11 +128,30 @@ SMODS.current_mod.config_tab = function() -- the configs will be stored in confi
                     },
                 },
             },
+            {n = G.UIT.R, config = { padding = 0.05 },
+                nodes = {
+                    {n = G.UIT.C, config = { minw = G.ROOM.T.w*0.25, padding = 0.05},
+                        nodes = {
+                            create_text_input{
+                                label = localize("insert_text_here"),
+                                info = {localize("no_exmp_restart"), localize("insert_text_here")},
+                                colour = G.C.BLUE, -- the color of the slider
+                                w = G.ROOM.T.w*0.25, -- the width of the slider
+                                active_colour = ExampleMod.badge_colour,
+                                ref_table = ExampleMod.config.example,
+                                ref_value = "ante_scale_value",
+                            }
+                        },
+                    },
+                },
+            },
         }
     }
 end
 
-
+function reset_ante_scaling()
+    ExampleMod.config.example.ante_scale_value = 1
+end
 
 G.FUNCS.ExampleCallback = function(e)
     ExampleMod.config.multiplier = e.to_key -- this is the value that will be used in the config file, and it will be saved to the config file when the game is closed
