@@ -22,7 +22,7 @@ SMODS.Joker{
     pos = {x = 0, y = 0},
     rarity = 1,
     atlas = "PLH",
-    config = { extra = {mult = 4} },  
+    config = { extra = {mult = 4} },
     cost = 6,
     loc_txt = { -- this is how you can add text to your joker without having a localization file for your mod
         name = "Example Joker 2",
@@ -67,7 +67,6 @@ SMODS.Joker{
 SMODS.Joker {
     key = "examplejoker4",
     pos = {x = 0, y = 0},
-    soul_pos = { x = 1, y = 0 },
     rarity = 1,
     atlas = "PLH",
     config = { extra = {X_mult = 2, mult_mod = 0.5} },
