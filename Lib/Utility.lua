@@ -58,7 +58,7 @@ SMODS.current_mod.config_tab = function() -- the configs will be stored in confi
                     }
                 }
             },
-            {n = G.UIT.C, config = { minw = G.ROOM.T.w*0.25, padding = 0.05},
+            {n = G.UIT.R, config = { minw = G.ROOM.T.w*0.25, padding = 0.05},
                 nodes = {
                     create_slider{
                         label = localize("extra_discards_label"), -- the label that is displayed just above the slider
@@ -92,9 +92,25 @@ SMODS.current_mod.config_tab = function() -- the configs will be stored in confi
                     }
                 }
             },
+            {n = G.UIT.R, config = { minw = G.ROOM.T.w*0.25, padding = 0.05},
+                nodes = {
+                    create_slider{
+                        label = ("Win Ante Slider"),
+                        info = {localize("no_exmp_restart"), localize("insert_text_here")},
+                        colour = G.C.BLUE, -- the color of the slider
+                        min = 8, max = 100, -- the min and max values of the slider
+                        w = G.ROOM.T.w*0.25, -- the width of the slider
+                        active_colour = ExampleMod.badge_colour,
+                        ref_table = G.GAME,
+                        ref_value = "win_ante"
+                    }
+                }
+            },
         }
     }
 end
+
+
 
 G.FUNCS.ExampleCallback = function(e)
     ExampleMod.config.multiplier = e.to_key -- this is the value that will be used in the config file, and it will be saved to the config file when the game is closed
