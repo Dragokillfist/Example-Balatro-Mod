@@ -5,7 +5,7 @@ return {
     only_face_cards = false,
     random_cards = false,
     example_value = 0,
-    winante_value = 8,
+    ante_scale_value = 0,
     },
     options = {
         option_0 = 1,

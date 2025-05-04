@@ -43,68 +43,90 @@ SMODS.current_mod.config_tab = function() -- the configs will be stored in confi
                         }
                     },
                 }
+            },
+            {n = G.UIT.R, config = { padding = 0.05 },
+                nodes = {
+                    {n = G.UIT.C, config = { minw = G.ROOM.T.w*0.25, padding = 0.05},
+                        nodes = {
+                            create_slider{
+                                label = localize("extra_hands_label"),
+                                info = {localize("no_exmp_restart"), localize("insert_text_here")},
+                                colour = G.C.BLUE, -- the color of the slider
+                                min = 0, max = 100, -- the min and max values of the slider
+                                w = G.ROOM.T.w*0.25, -- the width of the slider
+                                active_colour = ExampleMod.badge_colour,
+                                ref_table = ExampleMod.config.example,
+                                ref_value = "bonus_starting_hands"
+                            }
+                        }
+                    },
+                    {n = G.UIT.C, config = { minw = G.ROOM.T.w*0.25, padding = 0.05},
+                        nodes = {
+                            create_slider{
+                                label = localize("extra_discards_label"), -- the label that is displayed just above the slider
+                                info = {localize("no_exmp_restart"), localize("insert_text_here")},
+                                min = 0, max = 100, -- the min and max values of the slider
+                                w = G.ROOM.T.w*0.25, -- the width of the slider
+                                active_colour = ExampleMod.badge_colour,
+                                ref_table = ExampleMod.config.example,
+                                ref_value = "bonus_starting_discards"
+                            }
+                        }
+                    },
+                    {n = G.UIT.C, config = { minw = G.ROOM.T.w*0.25, padding = 0.05},
+                        nodes = {
+                            create_slider{
+                                label = ("Win Ante Slider"),
+                                info = {localize("no_exmp_restart"), localize("insert_text_here")},
+                                colour = G.C.BLUE, -- the color of the slider
+                                min = 8, max = 100, -- the min and max values of the slider
+                                w = G.ROOM.T.w*0.25, -- the width of the slider
+                                active_colour = ExampleMod.badge_colour,
+                                ref_table = G.GAME,
+                                ref_value = "win_ante"
+                            }
+                        }
+                    },
                 },
-            {n = G.UIT.R, config = { minw = G.ROOM.T.w*0.25, padding = 0.05},
-                nodes = {
-                    create_slider{
-                        label = localize("extra_hands_label"),
-                        info = {localize("no_exmp_restart"), localize("insert_text_here")},
-                        colour = G.C.BLUE, -- the color of the slider
-                        min = 0, max = 100, -- the min and max values of the slider
-                        w = G.ROOM.T.w*0.25, -- the width of the slider
-                        active_colour = ExampleMod.badge_colour,
-                        ref_table = ExampleMod.config.example,
-                        ref_value = "bonus_starting_hands"
-                    }
-                }
             },
-            {n = G.UIT.R, config = { minw = G.ROOM.T.w*0.25, padding = 0.05},
+            {n = G.UIT.R, config = { padding = 0.05 },
                 nodes = {
-                    create_slider{
-                        label = localize("extra_discards_label"), -- the label that is displayed just above the slider
-                        info = {localize("no_exmp_restart"), localize("insert_text_here")},
-                        min = 0, max = 100, -- the min and max values of the slider
-                        w = G.ROOM.T.w*0.25, -- the width of the slider
-                        active_colour = ExampleMod.badge_colour,
-                        ref_table = ExampleMod.config.example,
-                        ref_value = "bonus_starting_discards"
-                    }
-                }
-            },
-            {n = G.UIT.R, config = { minw = G.ROOM.T.w*0.25, padding = 0.05},
-                nodes = {
-                    create_option_cycle{
-                        colour = G.C.BLUE, -- the color of the slider
-                        info = {("No Restart Needed"), localize("insert_text_here")},
-                        options = {
-                            ExampleMod.config.options.option_0, -- the text that will show up in the option cycle
-                            ExampleMod.config.options.option_1, -- the text that will show up in the option cycle
-                            ExampleMod.config.options.option_2,
-                            ExampleMod.config.options.option_3,
-                            ExampleMod.config.options.option_4,
-                            ExampleMod.config.options.option_inf,
+                    {n = G.UIT.C, config = { minw = G.ROOM.T.w*0.25, padding = 0.05},
+                        nodes = {
+                            create_slider{
+                                label = ("Ante Scaling"),
+                                info = {localize("no_exmp_restart"), localize("insert_text_here")},
+                                colour = G.C.BLUE, -- the color of the slider
+                                min = -100, max = 100, -- the min and max values of the slider
+                                w = G.ROOM.T.w*0.25, -- the width of the slider
+                                active_colour = ExampleMod.badge_colour,
+                                ref_table = ExampleMod.config.example,
+                                ref_value = "ante_scale_value"
+                            },
                         },
-                        label = ("Starting Money Multiplier"), -- the label that shows up next to the option cycle
-                        ref_value = "example_value", -- the value that this option cycle uses
-                        ref_table = ExampleMod.config.options, -- the table of which the toggle will be added to
-                        opt_callback = "ExampleCallback", -- the function that will be called when the option is changed
-                        current_option = ExampleMod.config.multiplier, -- the current value of the option cycle
-                    }
-                }
-            },
-            {n = G.UIT.R, config = { minw = G.ROOM.T.w*0.25, padding = 0.05},
-                nodes = {
-                    create_slider{
-                        label = ("Win Ante Slider"),
-                        info = {localize("no_exmp_restart"), localize("insert_text_here")},
-                        colour = G.C.BLUE, -- the color of the slider
-                        min = 8, max = 100, -- the min and max values of the slider
-                        w = G.ROOM.T.w*0.25, -- the width of the slider
-                        active_colour = ExampleMod.badge_colour,
-                        ref_table = G.GAME,
-                        ref_value = "win_ante"
-                    }
-                }
+                    },
+                    {n = G.UIT.C, config = { minw = G.ROOM.T.w*0.25, padding = 0.05},
+                        nodes = {
+                            create_option_cycle{
+                                colour = G.C.BLUE, -- the color of the slider
+                                info = {("No Restart Needed"), localize("insert_text_here")},
+                                options = {
+                                    ExampleMod.config.options.option_0, -- the text that will show up in the option cycle
+                                    ExampleMod.config.options.option_1, -- the text that will show up in the option cycle
+                                    ExampleMod.config.options.option_2,
+                                    ExampleMod.config.options.option_3,
+                                    ExampleMod.config.options.option_4,
+                                    ExampleMod.config.options.option_inf,
+                                },
+                                label = ("Starting Money Multiplier"), -- the label that shows up next to the option cycle
+                                ref_value = "example_value", -- the value that this option cycle uses
+                                ref_table = ExampleMod.config.options, -- the table of which the toggle will be added to
+                                opt_callback = "ExampleCallback", -- the function that will be called when the option is changed
+                                current_option = ExampleMod.config.multiplier, -- the current value of the option cycle
+                            }
+                        }
+                    },
+                },
             },
         }
     }
@@ -138,6 +160,7 @@ function get_starting_params()
     params.discards = params.discards + ExampleMod.config.example.bonus_starting_discards
     params.no_faces = ExampleMod.config.example.only_face_cards
     params.erratic_suits_and_ranks = ExampleMod.config.example.random_cards
+    params.ante_scaling = params.ante_scaling + ExampleMod.config.example.ante_scale_value -- this is the value that will be used in the config file, and it will be saved to the config file when the game is closed
     params.dollars = params.dollars * ExampleMod.config.example.example_value -- this is the value that will be used in the config file, and it will be saved to the config file when the game is closed
     return params
 end
