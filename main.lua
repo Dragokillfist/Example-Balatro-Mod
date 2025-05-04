@@ -9,7 +9,7 @@ ExampleMod.enabled = copy_table(ExampleMod_config) -- this is the current state 
 
 -- to make your config actually register and work you will need to add the lines 3, 4, and 5 to your mod, and you can replace the ExampleMod with your mods name
 
--- When making a Sprite For Balatro you need to have a 1x and a 2x file, because the sprite in the collection and the sprite of the joker you have mid run are different resolutions/sizes
+-- When making a Sprite For Balatro you need to have a 1x and a 2x file, because the 1x is used for no pixel art smothing, and 2x is used for pixel art smothing
 SMODS.Atlas({
     object_type = "Atlas",
     key = "PLH", -- this is what you put in your atlas in your joker, consumable, or any other modded item, an example of this can be found in Items/Jokers.lua on line 8

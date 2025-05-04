@@ -27,9 +27,9 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
                 name = "Example Joker 4",
                 text = {
                     "This is an example of a scaling joker",
-                    "this joker will gain {C:mult}#2#{} additional mult",
+                    "this joker will gain {X:mult,C:white}+X#2#{} additional mult",
                     "every time a card is scored",
-                    "{C:inactive}(currently gives {C:mult}+#1#{} {C:inactive}mult)"
+                    "{C:inactive}(currently gives {X:mult,C:white}X#1#{} {C:inactive}mult)"
                 }
             },
         },
