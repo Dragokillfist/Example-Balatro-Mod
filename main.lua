@@ -32,5 +32,4 @@ SMODS.Atlas({
 assert(SMODS.load_file("Items/Jokers.lua"))()
 assert(SMODS.load_file("Items/Consumables.lua"))() -- this is where you will find how you can make a custom consumable type or just create a consumable of a pre-existing type
 assert(SMODS.load_file("Items/Misc.lua"))()
-assert(SMODS.load_file("Items/Decks.lua"))() -- this is where you will find how to make a custom deck or just create a deck of a pre-existing type
 assert(SMODS.load_file("Lib/Utility.lua"))() -- this is the file where we add the code to initialize the config menu and other utility functions
