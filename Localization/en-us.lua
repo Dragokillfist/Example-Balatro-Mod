@@ -32,6 +32,20 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
                     "{C:inactive}(currently gives {X:mult,C:white}X#1#{} {C:inactive}mult)"
                 }
             },
+            j_exmp_examplejoker5 = {
+                name = "Example Joker 5",
+                text = {
+                    "Gives {C:mult}+#1#{} mult every time a {C:attention}2{} is scored",
+                },
+            },
+            j_exmp_examplejoker6 = {
+                name = "Example Joker 6",
+                text = {
+                    "Gives {C:mult}+#1#{} mult every time a {C:attention}2{} is scored",
+                    "Gives {C:chips}+#2#{} chips every time a {C:attention}7{} is scored",
+                    "Gives {C:mult}+#1#{} and {C:chips}+#2#{} chips every time a {C:attention}Ace{} is scored",
+                },
+            },
         },
         Tarot = {
             c_exmp_exampletarot = {

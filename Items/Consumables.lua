@@ -45,7 +45,7 @@ SMODS.Consumable {
 	set = "Spectral", -- this is what you will use to determine what type of consumable this item is, in this case it is a spectral
 	name = "example spectral", -- this is the name that will be shown when hovering over the consumable in the collection
 	key = "examplespectral", -- this is the key that we will use to tell the localization what consumable to add the text and name to
-	pos = { x = 0, y = 0 }, -- this is the position of what sprite the consumable will use, balatro uses a 0 index system so the first sprite is 0,0 and the second sprite is 1,0 and so on
+	pos = { x = 2, y = 2 }, -- this is the position of what sprite the consumable will use, balatro uses a 0 index system so the first sprite is 0,0 and the second sprite is 1,0 and so on
   cost = 3, -- this is the cost of the consumable in the shop, and its sell value is half of what the cost to buy is, but since its cost is not even we will round it down to 1 dollar
 	hidden = false, -- set to true to hide the item from the collection
 	atlas = "PLH", -- this is the key that determines what atlas the consumable will use, this is the same as the key in the atlas function in main.lua
@@ -86,7 +86,7 @@ SMODS.Consumable {
     set = 'Planet', -- this is what you will use to determine what type of consumable this item is, in this case it is a planet
     key = 'exampleplanet', -- this is the key that we will use to tell the localization what consumable to add the text and name to
     config = { hand_type = "exmp_Royal_Flush", softlock = true}, -- this is the config that will be used to determine what type of hand this consumable will add a level to, in this case it is a Royal Flush
-    pos = {x = 0, y = 0 }, -- this is the position of what sprite the consumable will use, balatro uses a 0 index system so the first sprite is 0,0 and the second sprite is 1,0 and so on
+    pos = {x = 0, y = 2 }, -- this is the position of what sprite the consumable will use, balatro uses a 0 index system so the first sprite is 0,0 and the second sprite is 1,0 and so on
     atlas = 'PLH', -- this is the key that determines what atlas the consumable will use, this is the same as the key in the atlas function in main.lua
     cost = 3, -- this is the cost of the consumable in the shop, and its sell value is half of what the cost to buy is, but since its cost is not even we will round it down to 1 dollar
     loc_vars = function(self, info_queue, card) -- this is the function that determines what variables will be shown when hovering over the consumable
@@ -134,7 +134,7 @@ if ExampleMod.config.example_config_toggle then -- if this config option is togg
     set = "ExampleSet", -- this is what you will use to determine what type of consumable this item is, in this case it is a example consumable
     name = "example consumable", -- this is the name that will be shown when hovering over the consumable in the collection
     key = "exampleconsume", -- this is the key that we will use to tell the localization what consumable to add the text and name to
-    pos = {x = 0, y = 0}, -- this is the position of what sprite the consumable will use, balatro uses a 0 index system so the first sprite is 0,0 and the second sprite is 1,0 and so on
+    pos = {x = 1, y = 2}, -- this is the position of what sprite the consumable will use, balatro uses a 0 index system so the first sprite is 0,0 and the second sprite is 1,0 and so on
     cost = 3, -- this is the cost of the consumable in the shop, and its sell value is half of what the cost to buy is, but since its cost is not even we will round it down to 1 dollar
     atlas = "PLH", -- this is the key that determines what atlas the consumable will use, this is the same as the key in the atlas function in main.lua
     config = { extra = {card_create = 1}}, -- this is the config that will be used to determine how many cards will be created when the consumable is used, you can change this number to any number you want

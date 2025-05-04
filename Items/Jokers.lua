@@ -67,7 +67,7 @@ SMODS.Joker{
 SMODS.Joker {
     key = "examplejoker4",
     pos = {x = 0, y = 0},
-    rarity = 1,
+    rarity = 3,
     atlas = "PLH",
     config = { extra = {X_mult = 2, mult_mod = 0.5} },
     cost = 6,
@@ -75,11 +75,55 @@ SMODS.Joker {
         return { vars = { center.ability.extra.X_mult, center.ability.extra.mult_mod } }
     end,
     calculate = function (self, card, context)
-        if context.individual and context.cardarea == G.play then
-            card.ability.extra.X_mult = card.ability.extra.X_mult + card.ability.extra.mult_mod
+        if context.individual and context.cardarea == G.play then 
+            card.ability.extra.X_mult = card.ability.extra.X_mult + card.ability.extra.mult_mod -- this is how we make the jokers Xmult Scale with each scored card
         end
         if context.cardarea == G.jokers and context.joker_main then
             return {Xmult_mod = card.ability.extra.X_mult}
+        end
+    end,
+}
+
+SMODS.Joker {
+    key = "examplejoker5",
+    pos = {x = 0, y = 0},
+    rarity = 2,
+    atlas = "PLH",
+    config = { extra = {mult = 4} },
+    cost = 6,
+    loc_vars = function (self, info_queue, center)
+        return { vars = { center.ability.extra.mult } }
+    end,
+    calculate = function (self, card, context)
+        if context.cardarea == G.play and context.individual then
+            if context.other_card.base.nominal == 2 then -- this is how we make it so then only 2s will trigger this joker if it is scored
+                return {mult = card.ability.extra.mult} -- this is where we tell the game what our joker effect will be
+            end
+        end
+    end,
+}
+
+SMODS.Joker {
+    key = "examplejoker6",
+    pos = {x = 0, y = 0},
+    rarity = 3,
+    atlas = "PLH",
+    config = { extra = {mult = 4, chips = 10} },
+    cost = 6,
+    loc_vars = function (self, info_queue, center)
+        return { vars = { center.ability.extra.mult, center.ability.extra.chips } }
+    end,
+    calculate = function (self, card, context)
+        if context.cardarea == G.play and context.individual then
+            if context.other_card.base.nominal == 2 then -- this is how we make it so then only 2s will trigger this joker if it is scored
+                return {mult = card.ability.extra.mult} -- this is where we tell the game what our joker effect will be
+            end
+            if context.other_card.base.nominal == 7 then
+                return {chips = card.ability.extra.chips} -- this is where we tell the game what our joker effect will be
+            end
+            if context.other_card.base.id == 14 then
+                return {mult = card.ability.extra.mult, chips = card.ability.extra.chips} -- this is where we tell the game what our joker effect will be
+            end
         end
     end,
 }

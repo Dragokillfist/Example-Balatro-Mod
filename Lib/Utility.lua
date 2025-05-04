@@ -149,9 +149,11 @@ ExampleMod.config_tab = function() -- the configs will be stored in config.lua a
     }
 end
 
-function reset_ante_scaling()
-    ExampleMod.config.example.ante_scale_value = 1
+G.FUNCS.reset_ante_scaling = function() -- this is the function that will be called when the button is pressed
+    ExampleMod.config.example.ante_scale_value = 0 -- this is the value that will be used in the config file, and it will be saved to the config file when the game is closed
 end
+
+
 
 G.FUNCS.ExampleCallback = function(e)
     ExampleMod.config.multiplier = e.to_key -- this is the value that will be used in the config file, and it will be saved to the config file when the game is closed
@@ -165,9 +167,9 @@ end
 create_toggle(args)
 create_option_cycle(args)
 create_slider(args)
+create_text_input(args)
 -- not implemented --
 UIBox_button(args)
-create_text_input(args)
 simple_text_container(_loc, args)
 create_UIBox_generic_options(args)
 ]]
