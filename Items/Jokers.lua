@@ -96,7 +96,7 @@ SMODS.Joker {
     end,
     calculate = function (self, card, context)
         if context.cardarea == G.play and context.individual then
-            if context.other_card.base.nominal == 2 then -- this is how we make it so then only 2s will trigger this joker if it is scored
+            if context.other_card.base.id == 2 then -- this is how we make it so then only 2s will trigger this joker if it is scored
                 return {mult = card.ability.extra.mult} -- this is where we tell the game what our joker effect will be
             end
         end
@@ -115,10 +115,10 @@ SMODS.Joker {
     end,
     calculate = function (self, card, context)
         if context.cardarea == G.play and context.individual then
-            if context.other_card.base.nominal == 2 then -- this is how we make it so then only 2s will trigger this joker if it is scored
+            if context.other_card.base.id == 2 then -- this is how we make it so then only 2s will trigger this joker if it is scored
                 return {mult = card.ability.extra.mult} -- this is where we tell the game what our joker effect will be
             end
-            if context.other_card.base.nominal == 7 then
+            if context.other_card.base.id == 7 then
                 return {chips = card.ability.extra.chips} -- this is where we tell the game what our joker effect will be
             end
             if context.other_card.base.id == 14 then
@@ -147,12 +147,44 @@ SMODS.Joker {
     end,
     calculate = function (self, card, context)
         if context.individual and context.other_card.lucky_trigger then -- lucky_trigger is a context that checks if a lucky cards ability was triggered
-            card.ability.extra.X_mult = card.ability.extra.X_mult + card.ability.extra.mult_mod 
+            card.ability.extra.X_mult = card.ability.extra.X_mult + card.ability.extra.mult_mod
         end
         if context.individual and context.cardarea == G.play then
-            if context.other_card.base.nominal == 7 then
+            if context.other_card.base.id == 7 then
                 return {xmult = card.ability.extra.X_mult}
             end
+        end
+    end,
+}
+
+SMODS.Joker {
+    key = "examplejoker7",
+    pos = {x = 0, y = 0},
+    rarity = 3,
+    atlas = "PLH",
+    config = { extra = {mult = 4, storage_req = 3, mult_mod = 2, intensity = 0, storage = 0 }, exmp_storage = true}, -- we declare exmp_storage to be true so then the joker has the use storage button, the function we use to make it is in Lub/Utility.lua and we patch the button into the UI_definitions.lua in the lovely dump under dump/functions/UI_definitions.lua, tho the code for it can be found in out example.toml in our lovely folder
+    cost = 6,
+    loc_vars = function (self, info_queue, center)
+        return { vars = { center.ability.extra.mult, center.ability.extra.storage_req, center.ability.extra.mult_mod, center.ability.extra.intensity, center.ability.extra.storage } }
+    end,
+    calculate = function (self, card, context)
+        card.ability.extra.storage = 0 + G.GAME.storage -- this is to display our current storage value on the joker in our localization file, this value is defined as #5#
+        if context.cardarea == G.play and context.individual then
+            if context.other_card.base.id == 2 then -- this is how we make it so then only 2s will trigger this joker if it is scored
+                return {mult = card.ability.extra.mult} -- this is where we tell the game what our joker effect will be
+            end
+            if context.other_card.base.id == 7 then
+                return {exmp_increment_storage(card, context)} -- this is the custom function that we made to increment the value of G.GAME.storage by 1, this function can be found in Lib/Utility.lua
+            end
+            if context.other_card.base.id == 14 then
+                return {mult = card.ability.extra.mult * (1 + card.ability.extra.intensity)} -- this is where we tell the game what our joker effect will be
+            end
+            if context.other_card.base.id == 5 then
+                card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_mod
+            end
+        end
+        if context.use_storage then -- this increases our intensity when we press the use storage button while we have enough storage value to use it
+            card.ability.extra.intensity = card.ability.extra.intensity + 1
         end
     end,
 }

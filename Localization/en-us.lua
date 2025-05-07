@@ -46,6 +46,17 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
                     "Gives {C:mult}+#1#{} and {C:chips}+#2#{} chips every time a {C:attention}Ace{} is scored",
                 },
             },
+            j_exmp_examplejoker7 = {
+                name = "Example Joker 7",
+                text = {
+                    "for every scored {C:attention}2{} gain {C:mult}+#1#{} mult",
+                    "for every scored {C:attention}7{} gain {C:purple}1{} storage value",
+                    "for every scored {C:attention}Ace{} gain {C:mult}+#1#{} * (1 + {C:attention}#4#{}) mult",
+                    "for every scored {C:attention}5{}",
+                    "increase the amount of mult gained by {C:mult}+#3#{}",
+                    "{C:inactive}currently at #5# storage value",
+                }
+            },
         },
         Tarot = {
             c_exmp_exampletarot = {
@@ -123,6 +134,7 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
             option_2 = "ok",
             option_3 = "good",
             option_4 = "great",
+            b_use = "Use",
         },
         poker_hand_descriptions = {
             ["exmp_Royal_Flush"] = {

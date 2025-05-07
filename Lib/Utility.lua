@@ -186,3 +186,43 @@ function get_starting_params()
     return params
 end
 
+-- custom resource and variables
+-- the G.GAME.storage value can be found in our example.toml or in game.lua in the lovely dump
+
+
+function require_storage_count(card, context) -- this checks if our storage value is greater than or equal to the storage requirement of the joker
+    return G.GAME.storage >= card.ability.extra.storage_req 
+end
+
+function use_storage(card) -- this removes our storage value when we use the storage button on any object that has it by the storage requirement
+    G.GAME.storage = G.GAME.storage - card.ability.extra.storage_req
+    SMODS.trigger_effects({eval_card(card, { use_storage = true })}) -- this is how we trigger our effects when we use the storage button
+end
+
+function G.FUNCS.can_use_storage(e) -- this checks if we can use the storage button on any object that has the exmp_storage returned as true
+    local c1 = e.config.ref_table
+    if require_storage_count(c1) then -- this checks if the conditions satisfy out require_storage_count function
+        e.config.colour = G.C.GOLD -- when the if statment is satisfied this is the color of the button
+        e.config.button = 'use_storage'
+    else
+        e.config.colour = G.C.UI.BACKGROUND_INACTIVE -- this is the color of the button when the if statment is not satisfied
+        e.config.button = nil
+    end
+end
+
+function G.FUNCS.use_storage(e) -- this is the function that is called when we press the use storage button
+    local c1 = e.config.ref_table
+    G.E_MANAGER:add_event(Event({ -- this adds the event that runs the functions for our button
+        trigger = "after",
+        delay = 0.1,
+        func = function()
+            use_storage(c1) -- this is where we call our use_storage function to remove the storage value
+            return true
+        end,
+    }))
+    G.jokers:unhighlight_all() -- this unhighlights all jokers when we press the use storage button
+end
+
+function exmp_increment_storage(card, context) -- this is the function that we call to increase our storge value
+    G.GAME.storage = G.GAME.storage + (card.ability.extra.add_storage or 1)
+end
