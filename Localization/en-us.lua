@@ -80,6 +80,20 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
                 }
             },
         },
+        Edition = {
+            e_exmp_gold = {
+                name = "Example Gold",
+                text = {
+                    "insert text here",
+                }
+            },
+            e_exmp_laminated = {
+                name = "Example Laminated",
+                text = {
+                    "insert text here",
+                }
+            },
+        },
         ExampleSet = { -- this is how we add localization for a custom consumable type
             c_exmp_exampleconsume ={
                 name = "Example Custom Consumable",
@@ -119,6 +133,10 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
         },
         poker_hands = {
             ["exmp_Royal_Flush"] = "Royal Flush",
+        },
+        label = {
+            e_exmp_laminated = "Laminated",
+            e_exmp_gold = "Gold",
         },
     },
 }
