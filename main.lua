@@ -24,6 +24,12 @@ SMODS.Atlas({
     px = 71,
     py = 95,-- the standard 1x size of any joker or consumable is 71x95
 })
+SMODS.Atlas({
+    key = "PLH2",
+    path = "Tarots.png",
+    px = 71,
+    py = 95,
+})
 -- do note that the key and path of an atlas is case sensitive, so make sure you are using the correct capitalization
 
 
@@ -33,4 +39,5 @@ assert(SMODS.load_file("Items/Jokers.lua"))()
 assert(SMODS.load_file("Items/Consumables.lua"))() -- this is where you will find how you can make a custom consumable type or just create a consumable of a pre-existing type
 assert(SMODS.load_file("Items/Editions.lua"))() -- this is where you will find how to make a custom edition type or just create a edition of a pre-existing type
 assert(SMODS.load_file("Items/Misc.lua"))()
+assert(SMODS.load_file("Items/Enhancements.lua"))() -- this is where you will find how to make a custom enhancement type or just create a enhancement of a pre-existing type
 assert(SMODS.load_file("Lib/Utility.lua"))() -- this is the file where we add the code to initialize the config menu and other utility functions

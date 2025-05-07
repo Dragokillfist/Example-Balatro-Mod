@@ -68,6 +68,12 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
                     "Convert up to {C:attention}#1#{} selected cards to diamonds" -- the {C:attention} is the color of the text and #1# is the first variable that is in the Tarot's config and the {} ends the colored text without having to start a new line
                 }
             },
+            c_exmp_ExampleEnhTarot = {
+                name = "Example Enhancement Tarot",
+                text = {
+                    "Converts up to {C:attention}#1#{} selected cards to Example Enhancement"
+                },
+            },
         },
         Spectral = {
             c_exmp_examplespectral = {
@@ -103,6 +109,14 @@ return{ -- things in this file ARE case sensitive, so make sure you are using th
                 text = {
                     "insert text here",
                 }
+            },
+        },
+        Enhanced = {
+            m_exmp_MultEnh = {
+                name = "Example Enhancement",
+                text = {
+                    "Gives {C:mult}+#1#{} mult",
+                },
             },
         },
         ExampleSet = { -- this is how we add localization for a custom consumable type
