@@ -192,7 +192,7 @@ SMODS.Consumable {
     end
     delay(0.2)
     for i=1, #G.hand.highlighted do -- this is the loop that will change the selected cards into Diamonds, you can change 'Diamonds' to any other suit such as 'Hearts', 'Clubs', or 'Spades'
-      G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.1,func = function() Card.set_ability(G.hand.highlighted[i], "m_exmp_MultEnh" );return true end})) 
+      G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.1,func = function() Card.set_ability(G.hand.highlighted[i], "m_exmp_MultEnh" );return true end})) -- this is where we tell the consumable to apply our custom enhancement
     end
     for i=1, #G.hand.highlighted do
       local percent = 0.85 + (i-0.999)/(#G.hand.highlighted-0.998)*0.3
