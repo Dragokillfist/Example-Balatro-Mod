@@ -2,7 +2,7 @@
 
 SMODS.Joker{ -- this is a joker that uses a localization file, you can modify the text that is displayed by this joker in the Localization/en-us.lua
     key = "examplejoker", -- this is the key that we will use to tell the localization what joker to add the text and name to
-    pos = {x = 0, y = 0}, -- this is what determines the sprite that the joekr will use from the atlas it is assigned to
+    pos = {x = 0, y = 0}, -- this is what determines the sprite that the joker will use from the atlas it is assigned to which is defined on line 7
     rarity = 1, -- this is what determines the rarity of the joker (1 = common, 2 = uncommon, 3 = rare, and 4 = Legendary)
     atlas = "PLH", -- this is the key that determines what atlas the joker will use, this is the same as the key in the atlas function in main.lua
     config = { extra = {mult = 4} },  -- the config is used to make basic effects for our jokers
