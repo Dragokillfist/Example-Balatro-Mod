@@ -10,13 +10,13 @@ ExampleMod.config_tab = function() -- the configs will be stored in config.lua a
                 nodes = {
                     {n = G.UIT.C, config = { minw = G.ROOM.T.w*0.25, padding = 0.05 }, 
                         nodes = {
-                            create_toggle{ -- creates a toggle button under the config menu, there are some other type of UI options you can use on line 83 to 88, the one on line 82 is the one we are currently using
+                            create_toggle{
                                 label = localize("example_config_label"), -- the label that shows up next to the toggle button
                                 info = {localize("exmp_restart"), -- the text that will show below the toggle option
                                 localize("include_custom_consumable")}, -- the text that will show below the toggle option
                                 active_colour = ExampleMod.badge_colour, -- the color of the toggle when it is on
-                                ref_table = ExampleMod.config, -- the table of which the toggle will be added to
-                                ref_value = "example_config_toggle" -- the value that this toggle uses
+                                ref_table = ExampleMod.config, -- the table of which the toggle refrerences to check if it is on or off
+                                ref_value = "example_config_toggle" -- the value from the ref_table that the toggle will change when pressed
                             }
                         }
                     },
