@@ -1,4 +1,6 @@
+-- edition examples
 
+-- credit to most of this code being from the SMODS team
 
 SMODS.Shader {
     key = 'gold',

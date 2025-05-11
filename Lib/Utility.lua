@@ -155,7 +155,7 @@ end
 
 
 
-G.FUNCS.ExampleCallback = function(e)
+G.FUNCS.ExampleCallback = function(e) -- refrenced from talisman
     ExampleMod.config.multiplier = e.to_key -- this is the value that will be used in the config file, and it will be saved to the config file when the game is closed
     local mult_ops = { 1, 10, 20, 30, 40, 1e10, } -- this is the list of options that will be used in the option cycle, and it will be saved to the config file when the game is closed
     ExampleMod.config.example.example_value = mult_ops[e.to_key] 
@@ -175,7 +175,7 @@ create_UIBox_generic_options(args)
 ]]
 local gsp = get_starting_params
 
-function get_starting_params()
+function get_starting_params() -- used polterworx as a refrence for this code
     params = gsp()
     params.hands = params.hands + ExampleMod.config.example.bonus_starting_hands
     params.discards = params.discards + ExampleMod.config.example.bonus_starting_discards

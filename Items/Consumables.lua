@@ -82,7 +82,7 @@ SMODS.Consumable {
 	end,
 }
 
-SMODS.Consumable {
+SMODS.Consumable { -- code refrenced from the SMODS example poker hand mod
     set = 'Planet', -- this is what you will use to determine what type of consumable this item is, in this case it is a planet
     key = 'exampleplanet', -- this is the key that we will use to tell the localization what consumable to add the text and name to
     config = { hand_type = "exmp_Royal_Flush", softlock = true}, -- this is the config that will be used to determine what type of hand this consumable will add a level to, in this case it is a Royal Flush
