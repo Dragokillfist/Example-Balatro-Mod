@@ -40,4 +40,5 @@ assert(SMODS.load_file("Items/Consumables.lua"))() -- this is where you will fin
 assert(SMODS.load_file("Items/Editions.lua"))() -- this is where you will find how to make a custom edition type or just create a edition of a pre-existing type
 assert(SMODS.load_file("Items/Misc.lua"))()
 assert(SMODS.load_file("Items/Enhancements.lua"))() -- this is where you will find how to make a custom enhancement type or just create a enhancement of a pre-existing type
+assert(SMODS.load_file("Items/Challenges.lua"))() 
 assert(SMODS.load_file("Lib/Utility.lua"))() -- this is the file where we add the code to initialize the config menu and other utility functions

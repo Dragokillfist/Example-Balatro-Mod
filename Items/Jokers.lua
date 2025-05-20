@@ -130,7 +130,7 @@ SMODS.Joker {
 
 -- code provided from playerWon from the Cryptid discord
 SMODS.Joker {
-    key = "Lucky7's",
+    key = "Lucky_seven",
     pos = {x = 0, y = 0},
     rarity = 3,
     atlas = "PLH",
