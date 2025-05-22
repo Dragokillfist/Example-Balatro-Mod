@@ -21,7 +21,7 @@ SMODS.Challenge{
     restrictions = { -- the cards that are banned from appearing in this challenge
         banned_cards = {
             {id = 'j_exmp_examplejoker4'},
-            {id = 'j_exmp_examplejoker3'},
+            {id = 'j_exmp_examplejoker2'},
             {id = 'j_exmp_examplejoker'},
             {id = 'j_exmp_examplejoker5'},
             {id = 'j_exmp_examplejoker6'},
@@ -34,7 +34,6 @@ SMODS.Challenge{
             {id = 'c_exmp_exampletarot'},
             {id = 'c_exmp_examplespectral'},
             {id = 'c_exmp_exampleplanet'},
-            {id = 'c_exmp_exampleconsume'},
             {id = 'c_exmp_ExampleEnhTarot'},
             {id = 'v_blank'},
             {id = 'v_antimatter'},
